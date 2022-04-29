@@ -1,0 +1,70 @@
+<launch>
+
+  <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
+  <arg name = "tb3_april" default="tb3_lead" />
+  <arg name="multi_robot_name" default=""/>
+  <arg name="x_pos" default="-0.2"/>
+  <arg name="y_pos" default="1.6"/>
+  <arg name="z_pos" default="0"/>  
+  <arg name="yaw_pos" default="3.14"/>
+
+  <arg name="x1_pos" default="1.0"/>
+  <arg name="y1_pos" default="1.2"/>
+  <arg name="z1_pos" default="0.0"/>
+  <arg name="yaw1_pos" default="1.55"/>	
+
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find aue_finals)/worlds/turtlebot3_final.world" />
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>  
+
+   <!--<include file="$(find person_sim)/launch/init_small_standing_person.launch">
+   </include>-->
+
+   <!--<include file="$(find turtle_tf_3d)/launch/person_standing_keyboard_move.launch">
+   </include>-->
+
+  <!--<include file="$(find turtlebot3_bringup)/launch/includes/description.launch.xml">
+    <arg name="model" value="$(arg model)" />
+  </include>-->
+
+  <!--<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0" />
+    <param name="tf_prefix" value="$(arg multi_robot_name)"/>
+  </node>-->
+  
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -Y $(arg yaw_pos) -param robot_description" />
+
+
+ <group ns = "$(arg tb3_april)">
+    <!-- Load Burger description -->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find aue_finals)/src/urdf/turtlebot3_$(arg model)_april.urdf.xacro" />
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+      <param name="publish_frequency" type="double" value="50.0" />
+      <param name="tf_prefix" value="$(arg tb3_april)" />
+    </node>
+ 
+    <!-- Load Gazebo -->   
+    <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model $(arg tb3_april) -x $(arg x1_pos) -y $(arg y1_pos) -z $(arg z1_pos) -Y $(arg yaw1_pos) -param robot_description" />
+
+  </group>
+
+  <node name="obs" pkg="aue_finals" type="wall_follower_line_following.py" />
+  <!--<node name="rviz" pkg="rviz" type="rviz" args="-d $(find turtlebot3_gazebo)/rviz/turtlebot3_gazebo_model.rviz"/>-->
+  <!--<node name="obs" pkg="aue_finals" type="Final_code_stopsign_working.py" />-->
+  <!--<include file="$(find darknet_ros)/launch/darknet_ros.launch"/>-->
+  <!--</include>-->
+  <!--<include file="$(find aue_finals)/launch/continuous_detection_gazebo.launch">-->
+  <!--</include>-->
+  <include file ="$(find darknet_ros)/launch/yolo_v3.launch">
+  </include>
+  
+</launch>

@@ -1,0 +1,10 @@
+<launch>
+
+  <node name="republish" type="republish" pkg="image_transport" output="screen" 	args="compressed in:=/camera/rgb/image_raw raw out:=/camera/image_rae" />
+  <node name="obs" pkg="aue_finals" type="wall_follower_line_following_Line_real_World.py" />
+  <include file="$(find aue_finals)/launch/continuous_detection.launch">
+  </include>
+  <include file ="$(find darknet_ros)/launch/darknet_ros.launch">
+  </include>
+  
+</launch>
