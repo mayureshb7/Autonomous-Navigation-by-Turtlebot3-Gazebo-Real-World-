@@ -1,4 +1,5 @@
-This file describes running Autonomous Navigation by Turtlebot3 Burger on Gazebo and Real world
+**About Project**
+This Project is about running Autonomous Navigation by Turtlebot3 Burger on Gazebo and Real world as a part of course AuE 8230 Autonomy Systems and Sciences
 
 	1) Autonomous Navigation - Gazebo
 		a) Run command to successfully launch world file in gazebo simulation
