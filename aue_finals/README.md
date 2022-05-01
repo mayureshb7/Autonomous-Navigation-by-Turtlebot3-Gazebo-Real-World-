@@ -3,8 +3,7 @@ This file describes running Autonomous Navigation by Turtlebot3 Burger on Gazebo
 	1) Autonomous Navigation - Gazebo
 		a) Run command: "roslaunch aue_finals turtlebot3_autonomy_final.launch" to successfully launch world file in gazebo simulation
 		b) Run command: "roslaunch aue_finals continuous_detection_gazebo.launch " for execution of april tag detection in gazebo simulation
-		
-		
+		https://github.com/mayureshb7/AuE8230_Turtlebot3_Autonomous/blob/master/aue_finals/Autonomous-Turtlebot-Gazebo.mp4
 	2) Autonomous Navigation - Real World
 		a) Run Roscore on the pc terminal
 		b) Bring up turtlebot3 burger by using this command on turtlebot terminal: roslaunch turtlebot3_bringup turtlebot3_robot.launch
