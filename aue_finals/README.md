@@ -1,11 +1,11 @@
 This file describes running Autonomous Navigation by Turtlebot3 Burger on Gazebo and Real world
 
-	1) Autonomous Navigation - Gazebo
-		a) Run command to successfully launch world file in gazebo simulation
-			roslaunch aue_finals turtlebot3_autonomy_final.launch
+1) Autonomous Navigation - Gazebo
+	a) Run command to successfully launch world file in gazebo simulation
+				roslaunch aue_finals turtlebot3_autonomy_final.launch
 
-		b) Run following command for execution of april tag detection in gazebo simulation
-			roslaunch aue_finals continuous_detection_gazebo.launch
+	b) Run following command for execution of april tag detection in gazebo simulation
+				roslaunch aue_finals continuous_detection_gazebo.launch
 
 https://github.com/mayureshb7/AuE8230_Turtlebot3_Autonomous/blob/master/aue_finals/Autonomous-Turtlebot-Gazebo.mp4
 
