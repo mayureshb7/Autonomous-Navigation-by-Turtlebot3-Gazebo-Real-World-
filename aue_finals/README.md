@@ -9,6 +9,7 @@ This Project is about running Autonomous Navigation by Turtlebot3 Burger on Gaze
 		b) Run following command for execution of april tag detection in gazebo simulation
 			roslaunch aue_finals continuous_detection_gazebo.launch
 
+**Experiment Video - Gazebo**
 https://github.com/mayureshb7/AuE8230_Turtlebot3_Autonomous/blob/master/aue_finals/Autonomous-Turtlebot-Gazebo.mp4
 
 ![Autonomous_Turtlebot_Gazebo](https://user-images.githubusercontent.com/99101076/166168122-377c6f50-f067-4db2-ac80-77a31ed547d7.gif)
