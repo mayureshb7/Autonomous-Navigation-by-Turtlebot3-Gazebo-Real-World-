@@ -1,6 +1,6 @@
 **About Project**
 
-This Capstone Project is about running Autonomous Navigation by Turtlebot3 Burger on Gazebo and Real world as a part of course AuE 8230 Autonomy Systems and Sciences
+This Capstone Project is about running Autonomous Navigation by Turtlebot3 Burger on Gazebo Simulation and Real world as a part of course AuE 8230 Autonomy Systems and Sciences
 
 **Commands to run Gazebo Simulation**
 
